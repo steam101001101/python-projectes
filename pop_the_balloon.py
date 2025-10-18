@@ -29,12 +29,29 @@ def balloons():
     balloon.showturtle()
     return balloon
 balloon=balloons()
+score=0
+speed=2.5
 while True:
-    balloon.sety(balloon.ycor()-2.5)
+    balloon.sety(balloon.ycor()-speed)
+    if score==10:
+        speed=3
+    if score<0:
+        turtle.clear()
+        turtle.goto(0,0)
+        turtle.write("game over",font=("arial",50,"bold"))
+        break
     if balloon.ycor()<-240:
         balloon.hideturtle()
         balloon=balloons()
+        score=score-1
+        turtle.clear()
+        turtle.write("score:"+str(score),font=("arial",20,"bold"))
     if pointer.distance(balloon)<20:
+        turtle.penup()
+        turtle.goto(250,250)
+        score=score+1
+        turtle.clear()
+        turtle.write("score:"+str(score),font=("arial",20,"bold"))
         balloon.hideturtle()
         balloon=balloons()
 turtle.exitonclick()
