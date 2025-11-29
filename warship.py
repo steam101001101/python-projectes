@@ -8,7 +8,6 @@ for i in range(3):
     number1=random.randint(0,4)
     number2=random.randint(0,4)
     gridA[ number1][number2]="*"
-print(gridA)
 """for row in gridA:
     print("|".join(row))
     print("_________")"""
@@ -24,3 +23,33 @@ for i in range(3):
 for row in gridB:
     print("|".join(row))
     print("_________")
+while True:
+    guestrow=int(input("guess the row"))
+    guestcol=int(input("guess the col"))
+    if gridA[guestrow][guestcol]=="*":
+        gridA[guestrow][guestcol]="x"
+        print("SHIP DOWN")
+    else:
+        gridA[guestrow][guestcol]="o"
+        print("miss")
+    player=0
+    for row in gridA:
+        player+=row.count("x")
+    if player==3:
+        print("player1 wins")
+        break
+    crow=random.randint(0,4)
+    ccol=random.randint(0,4)
+    if gridB[crow][ccol]=="^":
+        gridB[crow][ccol]="x"
+    else:
+        gridB[crow][ccol]="o"
+    computer=0
+    for row in gridB:
+        print("|".join(row))
+        print("_________")
+    for row in gridB:
+        computer+=row.count("x")
+    if computer==3:
+        print("player2 wins")
+        break
