@@ -12,5 +12,9 @@ while True:
     quantity=int(input("how many are you buying?"))
     cart[buyer]=quantity
     print(cart)
+total_cost=0
 for key,value in cart.items():
-    print(key,value,products[key])
+    amount=value*products[key]
+    print(key,value,products[key],amount)
+    total_cost+=amount
+print("This is the final amount",total_cost)
