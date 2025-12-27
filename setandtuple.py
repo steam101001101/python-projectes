@@ -1,0 +1,13 @@
+number=(1,2,3,4,5,6)
+print(number[3])
+x,y=(1,2)
+print(x,y)
+weapons={"Scar-20","katana","AK47","greatsword","greatsword"}
+weapons.add("dagger")
+print(weapons)
+set1={1,2,3,0}
+set2={0,3,4,2}
+print(set1.difference(set2))
+print(set1.intersection(set2))
+print(set2.union(set1))
+print(set2.difference(set1))
